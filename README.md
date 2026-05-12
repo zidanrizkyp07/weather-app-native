@@ -1,4 +1,4 @@
-# ☁ Aether — Live Weather App
+# ☁ Zephyrus — Live Weather App
 
 A beautiful, minimal weather app built with **pure HTML, CSS, and JavaScript** — no frameworks, no build tools, no API keys needed.
 
@@ -28,7 +28,7 @@ A beautiful, minimal weather app built with **pure HTML, CSS, and JavaScript** �
 ```bash
 git init
 git add .
-git commit -m "Initial commit: Aether weather app"
+git commit -m "Initial commit: Zephyrus weather app"
 git remote add origin https://github.com/YOUR_USERNAME/weather-app.git
 git push -u origin main
 ```
