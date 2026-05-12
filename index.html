@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aether — Live Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <main class="container">
+    <header class="site-header">
+      <div class="logo">☁ Aether</div>
+      <p class="tagline">Live weather, beautifully presented</p>
+    </header>
+
+    <section class="search-section">
+      <div class="search-wrap">
+        <input
+          id="city-input"
+          class="search-input"
+          type="text"
+          placeholder="Search any city..."
+          autocomplete="off"
+        />
+        <button id="search-btn" class="search-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <div id="suggestions" class="suggestions hidden"></div>
+    </section>
+
+    <section id="weather-card" class="weather-card hidden" aria-live="polite">
+      <div class="card-top">
+        <div class="location-info">
+          <h1 id="city-name" class="city-name"></h1>
+          <p id="country-name" class="country-name"></p>
+          <p id="local-time" class="local-time"></p>
+        </div>
+        <div class="weather-icon-wrap">
+          <div id="weather-icon" class="weather-icon"></div>
+        </div>
+      </div>
+
+      <div class="temp-section">
+        <span id="temperature" class="temperature"></span>
+        <span class="unit">°C</span>
+        <span id="feels-like" class="feels-like"></span>
+      </div>
+
+      <p id="weather-desc" class="weather-desc"></p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-icon">💧</span>
+          <span class="stat-label">Humidity</span>
+          <span id="humidity" class="stat-value"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">💨</span>
+          <span class="stat-label">Wind</span>
+          <span id="wind-speed" class="stat-value"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">👁</span>
+          <span class="stat-label">Visibility</span>
+          <span id="visibility" class="stat-value"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🌡</span>
+          <span class="stat-label">Pressure</span>
+          <span id="pressure" class="stat-value"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🌄</span>
+          <span class="stat-label">Sunrise</span>
+          <span id="sunrise" class="stat-value"></span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🌇</span>
+          <span class="stat-label">Sunset</span>
+          <span id="sunset" class="stat-value"></span>
+        </div>
+      </div>
+
+      <div class="forecast-section">
+        <h2 class="forecast-title">7-Day Forecast</h2>
+        <div id="forecast-grid" class="forecast-grid"></div>
+      </div>
+    </section>
+
+    <section id="error-msg" class="error-msg hidden" aria-live="assertive">
+      <span class="error-icon">⚡</span>
+      <p id="error-text"></p>
+    </section>
+
+    <section id="loading" class="loading hidden" aria-live="polite" aria-label="Loading weather data">
+      <div class="spinner"></div>
+      <p>Fetching weather data...</p>
+    </section>
+
+    <div id="empty-state" class="empty-state">
+      <div class="empty-globe">🌍</div>
+      <p>Search for a city to see live weather</p>
+      <div class="quick-cities">
+        <button class="quick-btn" data-city="Jakarta">Jakarta</button>
+        <button class="quick-btn" data-city="Tokyo">Tokyo</button>
+        <button class="quick-btn" data-city="London">London</button>
+        <button class="quick-btn" data-city="New York">New York</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Powered by <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> &amp; <a href="https://nominatim.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a> — free, open APIs</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
